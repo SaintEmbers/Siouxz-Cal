@@ -3,12 +3,13 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+  {{> menu}}
+  {{> calendar}}
+	<div class="container-fluid">
+	  <div class="row-fluid">
+	  	{{renderPage}}
+	  </div>
+	</div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
+
