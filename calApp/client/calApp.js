@@ -6,14 +6,23 @@ Session.setDefault('lastMod',null)
 Router.route('/', function () {
   this.render('home');
 });
+Router.route('/calendar',function() {
+  this.render('calendar')
+})
+Template.calendar.showEditEvent = function(){
+  return Session.get('showEditEvent')
+}
 Template.calendar.rendered = function(){
   $('#calendar').fullCalendar({
+
     dayClick:function( date, allDay, jsEvent, view) {
+      // alert('Clicked on')
       CalEvents.insert({title:'New Event', start: date, end: date})
       Session.set('lastMod', new Date())
     },
     eventClick: function(callEvent, jsEvent, view){
-
+      Session.set('editing_calevent', calEvent.id)
+      Session.set('showEditEvent', true)
     },
     events: function(start, end, callback) {
       var events = []
