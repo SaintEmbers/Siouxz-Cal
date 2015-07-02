@@ -8,6 +8,8 @@ meteor-platform
 autopublish
 insecure
 jquery
-bootstrap
+
 iron:router
-fullcalendar
+
+mrt:fullcalendar
+mrt:bootstrap-3
