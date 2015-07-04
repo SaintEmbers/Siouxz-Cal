@@ -9,7 +9,6 @@ autopublish
 insecure
 jquery
 
-iron:router
 
 mrt:fullcalendar
 mrt:bootstrap-3
