@@ -2,13 +2,31 @@ CalEvent = new Mongo.Collection('calevent');
 // Photo = new MongoCollection('photo')
 
 if(Meteor.isClient){
-
+  $.cloudinary.config({
+    cloud_name:"siouxzcal"
+  });
 
   Template.main.helpers({
     editing_event: function(){
       return Session.get('editing_event')
+    },
+    adding_media: function(){
+      return Session.get('adding_media')
     }
   })
+   */
+// Template.main.events({
+//   "change input[type='file']": function(e) {
+//     var files;
+//     files = e.currentTarget.files;
+//     return Cloudinary.upload(files, {
+//       folder: "secret"
+//     }, function(err, res) {
+//       console.log("Upload Error: " + err);
+//       return console.log("Upload Result: " + res);
+//     });
+//   }
+// });
 
   Template.main.rendered = function(){
     var calendar = $('#calendar').fullCalendar({

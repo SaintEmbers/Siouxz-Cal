@@ -7,9 +7,12 @@ if(Meteor.isClient){
     },
     "click .update": function(evt, tmpl){
       var tagLine = tmpl.find('#tagline').value
-      var title = tmpl.find('#title').value;
+      var title = tmpl.find('#title').value
+      var media = tmpl.find('#pic').value
+      console.log(media)
       Meteor.call('updateTitle', Session.get('editing_event'),title)
       Meteor.call('updateTag', Session.get('editing_event'), tagLine)
+      Meteor.call('addMedia', Session.get('editing_event'), media)
       Session.set('editing_event',null)
     },
     "click .deleteEvent": function(evt, tmpl){
@@ -17,7 +20,7 @@ if(Meteor.isClient){
       Session.set('editing_event',null)
     },
     "click .uploadEvent": function(evt, tmpl){
-
+      Session.get('adding_Media',true)
     }
   })
 

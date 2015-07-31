@@ -15,3 +15,5 @@ mrt:bootstrap-3
 accounts-base
 accounts-password
 accounts-ui
+cfs:standard-packages
+lepozepo:cloudinary
