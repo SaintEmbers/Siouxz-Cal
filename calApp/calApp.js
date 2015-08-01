@@ -2,9 +2,6 @@ CalEvent = new Mongo.Collection('calevent');
 // Photo = new MongoCollection('photo')
 
 if(Meteor.isClient){
-  $.cloudinary.config({
-    cloud_name:"siouxzcal"
-  });
 
   Template.main.helpers({
     editing_event: function(){
@@ -14,19 +11,9 @@ if(Meteor.isClient){
       return Session.get('adding_media')
     }
   })
-   */
-// Template.main.events({
-//   "change input[type='file']": function(e) {
-//     var files;
-//     files = e.currentTarget.files;
-//     return Cloudinary.upload(files, {
-//       folder: "secret"
-//     }, function(err, res) {
-//       console.log("Upload Error: " + err);
-//       return console.log("Upload Result: " + res);
-//     });
-//   }
-// });
+Template.main.events({
+
+});
 
   Template.main.rendered = function(){
     var calendar = $('#calendar').fullCalendar({
@@ -36,7 +23,7 @@ if(Meteor.isClient){
         calendarEvent.start = date;
         calendarEvent.end = date;
         calendarEvent.title = 'New Event';
-        calendarEvent.media = null;
+        // calendarEvent.media = null;
         calendarEvent.tagline = '';
         calendarEvent.owner = Meteor.userId();
         Meteor.call('saveCalEvent',calendarEvent);

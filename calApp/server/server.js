@@ -26,7 +26,8 @@ if(Meteor.isServer) {
       'deleteEvent': function(id){
         var evnt = CalEvent.findOne({_id:id})
         return CalEvent.remove(evnt)
-      }
+      },
+
     })
   })
 }

@@ -1,4 +1,3 @@
-
 if(Meteor.isClient){
 
   Template.dialog.events({
@@ -8,11 +7,11 @@ if(Meteor.isClient){
     "click .update": function(evt, tmpl){
       var tagLine = tmpl.find('#tagline').value
       var title = tmpl.find('#title').value
-      var media = tmpl.find('#pic').value
-      console.log(media)
+      // var media = tmpl.find('#pic').value
+      // console.log(media)
       Meteor.call('updateTitle', Session.get('editing_event'),title)
       Meteor.call('updateTag', Session.get('editing_event'), tagLine)
-      Meteor.call('addMedia', Session.get('editing_event'), media)
+      // Meteor.call('addMedia', Session.get('editing_event'), media)
       Session.set('editing_event',null)
     },
     "click .deleteEvent": function(evt, tmpl){
@@ -21,7 +20,25 @@ if(Meteor.isClient){
     },
     "click .uploadEvent": function(evt, tmpl){
       Session.get('adding_Media',true)
-    }
+
+
+    },
+    "change input[type='file']": function(e) {
+    $.cloudinary.config({
+        cloud_name:"siouxzcal"
+    });
+    var files;
+    console.log(Cloudinary)
+    files = e.currentTarget.files;
+
+    Cloudinary.upload(files, null, function(err,result) {
+        console.log(err)
+
+        console.log('result',result)
+
+    });
+    console.log(Cloudinary)
+  }
   })
 
   Template.dialog.helpers({
