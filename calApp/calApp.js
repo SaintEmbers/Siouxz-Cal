@@ -23,7 +23,7 @@ Template.main.events({
         calendarEvent.start = date;
         calendarEvent.end = date;
         calendarEvent.title = 'New Event';
-        // calendarEvent.media = null;
+        calendarEvent.mediaUrl = null;
         calendarEvent.tagline = '';
         calendarEvent.owner = Meteor.userId();
         Meteor.call('saveCalEvent',calendarEvent);

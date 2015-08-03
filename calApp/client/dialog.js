@@ -28,13 +28,17 @@ if(Meteor.isClient){
         cloud_name:"siouxzcal"
     });
     var files;
-    console.log(Cloudinary)
     files = e.currentTarget.files;
+    console.log(files)
 
     Cloudinary.upload(files, null, function(err,result) {
         console.log(err)
 
         console.log('result',result)
+        var mediaUrl = result.secure_url
+        console.log(mediaUrl)
+        Meteor.call('addMedia', Session.get('editing_event'), mediaUrl)
+
 
     });
     console.log(Cloudinary)
@@ -49,6 +53,10 @@ if(Meteor.isClient){
     tagline: function(){
         var ce = CalEvent.findOne({_id:Session.get('editing_event')})
         return ce.tagline
+    },
+    mediaUrl: function(){
+      var ce = CalEvent.findOne({_id:Session.get('editing_event')})
+      return ce.mediaUrl
     }
   })
 

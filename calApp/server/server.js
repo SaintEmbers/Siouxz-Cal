@@ -12,8 +12,8 @@ if(Meteor.isServer) {
       'updateTag': function(id, tagline){
         return CalEvent.update({_id:id},{$set:{tagline: tagline}})
       },
-      'addMedia': function(id, media){
-        return CalEvent.update({_id:id}, {$set:{media: media}})
+      'addMedia': function(id, mediaUrl){
+        return CalEvent.update({_id:id}, {$set:{mediaUrl: mediaUrl}})
       },
       'moveEvent': function(reqEvent){
         return CalEvent.update({_id:reqEvent._id},{
