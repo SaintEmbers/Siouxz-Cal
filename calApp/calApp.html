@@ -40,10 +40,16 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Enter a Title" value="{{title}}">
-            <input type="text" class="form-control" id="tagline" placeholder="Enter a Tagline" value="{{tagline}}">
-
+            <input type="text" class="form-control postTitle" id="title" placeholder="Enter a Title" value="{{title}}">
+            <input type="text" class="form-control postTitle" id="tagline" placeholder="Enter a Tagline" value="{{tagline}}">
+            <!-- show image that has been uploaded -->
+            <img class="dialogImage" src="{{mediaUrl}}"/>
+            <div class="approveButts">
+              <button type="button" class="btn btn-primary">Approve</button>
+              <button type="button" class="btn btn-primary">Reject</button>
+            </div>
           </div>
+          <div><button class="insta">Post to Instagram</button></div>
         </div>
         <div class="modal-footer">
 
@@ -51,10 +57,7 @@
             <input name="file" type="file"
                class="cloudinary-fileupload" data-cloudinary-field="image_id"
                data-form-data=" ... html-escaped JSON data ... " >
-            <!-- </input> -->
           </form>
-          <!-- <button type="button" class="btn btn-primary uploadEvent">Upload Post</button> -->
-          <!-- <button type="button" class="btn btn-default closeDialog" data-dismiss="modal">Close</button> -->
           <button type="button" class="btn btn-primary updateTitle update">Save</button>
           <button type="button" class="btn btn-primary deleteEvent">Delete</button>
 

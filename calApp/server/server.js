@@ -15,6 +15,9 @@ if(Meteor.isServer) {
       'addMedia': function(id, mediaUrl){
         return CalEvent.update({_id:id}, {$set:{mediaUrl: mediaUrl}})
       },
+      'addThumbnail': function(id, thumbUrl){
+        return CalEvent.update({_id:id}, {$set: {thumbUrl: thumbUrl}})
+      },
       'moveEvent': function(reqEvent){
         return CalEvent.update({_id:reqEvent._id},{
           $set:{

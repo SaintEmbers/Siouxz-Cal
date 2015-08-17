@@ -1,1 +1,21 @@
 /* CSS declarations go here */
+.dialogImage{
+  height:50%;
+  width:50%;
+  margin-top: 20px;
+  margin: auto;
+}
+
+.postTitle{
+  margin-bottom: 12px;
+}
+.approveButts{
+  margin-top: 12px;
+}
+/*.fc-event-title {
+
+       padding-left: 20px;
+       background-image: url(http://asdf.com/myimage.gif);
+       background-repeat: no-repeat;
+       background-position: 2px 50%;
+}*/

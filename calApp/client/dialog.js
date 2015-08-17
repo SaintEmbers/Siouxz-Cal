@@ -20,8 +20,6 @@ if(Meteor.isClient){
     },
     "click .uploadEvent": function(evt, tmpl){
       Session.get('adding_Media',true)
-
-
     },
     "change input[type='file']": function(e) {
     $.cloudinary.config({
@@ -30,18 +28,23 @@ if(Meteor.isClient){
     var files;
     files = e.currentTarget.files;
     console.log(files)
-
+    // Cloudinary.url()
     Cloudinary.upload(files, null, function(err,result) {
         console.log(err)
-
         console.log('result',result)
         var mediaUrl = result.secure_url
         console.log(mediaUrl)
         Meteor.call('addMedia', Session.get('editing_event'), mediaUrl)
-
-
     });
     console.log(Cloudinary)
+  },
+  "click .insta": function(evt){
+         Meteor.loginWithInstagram(function (err, res) {
+          if (err !== undefined)
+            console.log('sucess ' + res)
+          else
+            console.log('login failed ' + err)
+      });
   }
   })
 

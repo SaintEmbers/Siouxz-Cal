@@ -7,9 +7,9 @@ if(Meteor.isClient){
     editing_event: function(){
       return Session.get('editing_event')
     },
-    adding_media: function(){
-      return Session.get('adding_media')
-    }
+    // adding_media: function(){
+    //   return Session.get('adding_media')
+    // }
   })
 Template.main.events({
 
@@ -24,6 +24,7 @@ Template.main.events({
         calendarEvent.end = date;
         calendarEvent.title = 'New Event';
         calendarEvent.mediaUrl = null;
+        calendarEvent.thumbUrl = null;
         calendarEvent.tagline = '';
         calendarEvent.owner = Meteor.userId();
         Meteor.call('saveCalEvent',calendarEvent);

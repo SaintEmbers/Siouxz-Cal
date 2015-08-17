@@ -17,3 +17,5 @@ accounts-password
 accounts-ui
 cfs:standard-packages
 lepozepo:cloudinary
+bozhao:accounts-instagram
+service-configuration
